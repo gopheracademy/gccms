@@ -43,7 +43,7 @@ func (s *Sponsor) MarshalEditor() ([]byte, error) {
 			}),
 		},
 		editor.Field{
-			View: editor.Input("Description", s, map[string]string{
+			View: editor.Textarea("Description", s, map[string]string{
 				"label":       "Description",
 				"type":        "text",
 				"placeholder": "Enter the Description here",

@@ -46,7 +46,7 @@ func (h *Hotel) MarshalEditor() ([]byte, error) {
 			}),
 		},
 		editor.Field{
-			View: editor.Input("Description", h, map[string]string{
+			View: editor.Textarea("Description", h, map[string]string{
 				"label":       "Description",
 				"type":        "text",
 				"placeholder": "Enter the Description here",

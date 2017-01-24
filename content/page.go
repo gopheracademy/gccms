@@ -55,7 +55,7 @@ func (p *Page) MarshalEditor() ([]byte, error) {
 			}),
 		},
 		editor.Field{
-			View: editor.Input("Content", p, map[string]string{
+			View: editor.Textarea("Content", p, map[string]string{
 				"label":       "Content",
 				"type":        "text",
 				"placeholder": "Enter the Content here",
