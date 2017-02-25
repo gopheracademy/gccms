@@ -11,10 +11,10 @@ import (
 type Presentation struct {
 	item.Item
 
-	Title            string `json:"title"`
-	ShortDescription string `json:"short_description"`
-	LongDescription  string `json:"long_description"`
-	Speakers         []int  `json:"speakers"`
+	Title            string   `json:"title"`
+	ShortDescription string   `json:"short_description"`
+	LongDescription  string   `json:"long_description"`
+	Speakers         []string `json:"speakers"`
 }
 
 func (p *Presentation) String() string {
