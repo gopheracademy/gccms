@@ -21,6 +21,7 @@ type Speaker struct {
 	Linkedin      string `json:"linkedin"`
 	Facebook      string `json:"facebook"`
 	Googleplus    string `json:"googleplus"`
+	Github        string `json:"github"`
 	ContactPhone  string `json:"contact_phone"`
 	ContactEmail  string `json:"contact_email"`
 	Address       string `json:"address"`
@@ -28,6 +29,7 @@ type Speaker struct {
 	State         string `json:"state"`
 	Zip           string `json:"zip"`
 	Country       string `json:"country"`
+	TalkType      string `json:"talk_type"`
 	Presentations []int  `json:"presentations"`
 }
 
@@ -109,6 +111,14 @@ func (s *Speaker) MarshalEditor() ([]byte, error) {
 				"placeholder": "Enter the Googleplus url here",
 			}),
 		},
+
+		editor.Field{
+			View: editor.Input("Github", s, map[string]string{
+				"label":       "Github",
+				"type":        "text",
+				"placeholder": "Enter the Github url here",
+			}),
+		},
 		editor.Field{
 			View: editor.Input("ContactPhone", s, map[string]string{
 				"label":       "Contact Phone",
@@ -156,6 +166,17 @@ func (s *Speaker) MarshalEditor() ([]byte, error) {
 				"label":       "Country",
 				"type":        "text",
 				"placeholder": "Enter the Country here",
+			}),
+		},
+		editor.Field{
+			View: editor.Select("TalkType", s, map[string]string{
+				"label":       "TalkType",
+				"type":        "text",
+				"placeholder": "Enter the Talk Type here",
+			}, map[string]string{
+				"Keynote":  "Keynote",
+				"Tutorial": "Tutorial",
+				"Workshop": "Workshop",
 			}),
 		},
 	)
