@@ -16,6 +16,9 @@ type Presentation struct {
 	LongDescription  string   `json:"long_description"`
 	Speakers         []string `json:"speakers"`
 	DisplayOrder     int      `json:"display_order"`
+	Day		int	`json:"day"`
+	Slot		string 	`json:"slot"`
+
 }
 
 func (p *Presentation) String() string {
@@ -54,12 +57,25 @@ func (p *Presentation) MarshalEditor() ([]byte, error) {
 				"placeholder": "Enter the Long Description here",
 			}),
 		},
+
+		editor.Field{
+			View: editor.Input("Day", p, map[string]string{
+				"label":       "Day",
+				"type":        "int",
+				"placeholder": "Enter the Day (1 or 2)",
+			}),
+		},
 		editor.Field{
 			View: editor.Input("DisplayOrder", p, map[string]string{
 				"label":       "Display Order",
 				"type":        "int",
 				"placeholder": "Enter the Display Order here",
 			}),
+		},
+		editor.Field{
+    			View: reference.Select("Slot", p, map[string]string{
+        		"label": "Select Slot",
+    			}, "Slot", `{{.description}}`),
 		},
 		editor.Field{
 			//	View: editor.Input("Lessons", m, map[string]string{
