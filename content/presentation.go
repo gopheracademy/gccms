@@ -18,6 +18,7 @@ type Presentation struct {
 	DisplayOrder     int      `json:"display_order"`
 	Day		int	`json:"day"`
 	Slot		string 	`json:"slot"`
+	Track 		string `json:"track"`
 
 }
 
@@ -77,6 +78,17 @@ func (p *Presentation) MarshalEditor() ([]byte, error) {
         		"label": "Select Slot",
     			}, "Slot", `{{.description}}`),
 		},
+editor.Field{
+    View: editor.Select("Track", p, map[string]string{
+        "label": "Select Track",
+    }, map[string]string{
+        // "value": "Display Name",
+        "Main":     "Mile High Ballroom",
+        "MHB1a":    "MHB1a",
+        "MHB1d": "MHB1d",
+        "MBH2a":     "MHB2a",
+    }),
+},
 		editor.Field{
 			//	View: editor.Input("Lessons", m, map[string]string{
 			//		"label":       "Lessons",
